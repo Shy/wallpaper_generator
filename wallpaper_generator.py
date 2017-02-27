@@ -15,16 +15,16 @@ logo = Image.open("logo.png")
 cx = x/4
 cy = y/3
 
-
 width = 50
 cr1 = 400
+linebuffer = 150
 
 image = Image.new('RGB', (x, y),background)
 draw = ImageDraw.Draw(image)
 
-draw.line([(0, (cy*2) - (2 * width)), (cx+cy,0 - (2* width))], colour1, width)
-draw.line([(0, cy*2), (cx+cy,0)], colour2, width)
-draw.line([(0, (cy*2) + (2 * width)), (cx+cy,0 + (2* width))], colour3, width)
+draw.line([(0-linebuffer, ((cy*2) - (2 * width))+linebuffer), (cx+cy,0 - (2* width))], colour1, width)
+draw.line([((0)-linebuffer, cy*2+linebuffer), ((cx+cy+linebuffer),0-linebuffer)], colour2, width)
+draw.line([(0-linebuffer, ((cy*2) + (2 * width))+linebuffer), (cx+cy+linebuffer , 0 + (2* width)-linebuffer)], colour3, width)
 
 cr2 = cr1 - width
 cr3 = cr2 - width
