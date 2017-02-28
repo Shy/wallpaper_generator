@@ -1,8 +1,11 @@
 from PIL import Image, ImageDraw, ImageOps
 
+# Super sample and then downscale to reduce jaggy edges.
+multiplier = 2
+
 #Wallpaper Parameters
-x = 2560
-y = 1600
+x = 2560 * multiplier
+y = 1600 * multiplier
 
 #Colours
 colour2 = (197,60,2,0)
@@ -16,12 +19,12 @@ cx = x/4
 cy = y/3
 
 
-cr1 = 450
+cr1 = 450 * multiplier
 width = cr1/5
 cwidth = cr1/8
 
-linebuffer = 250
-spacing = width + 55
+linebuffer = 250 * multiplier
+spacing = width + (55 * multiplier)
 
 image = Image.new('RGB', (x, y),background)
 draw = ImageDraw.Draw(image)
@@ -56,5 +59,7 @@ draw.ellipse((cx-cr4, cy-cr4, cx+cr4, cy+cr4), fill=background)
 
 #Passing logo twice since it indicates a mask that will be used to paste the image. If you pass a image with transparency, then the alpha channel is used as mask.
 image.paste(logo, (cx - logowidth/2,cy - logoheight/2), logo)
+
+image = ImageOps.fit(image, (x/multiplier, y/multiplier) , Image.ANTIALIAS)
 
 image.save("outputSR.png")
