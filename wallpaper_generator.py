@@ -44,7 +44,7 @@ cr3 = cr2 - cwidth
 cr4 = cr3 - cwidth
 
 logowidth,logoheight=logo.size
-logo = ImageOps.fit(logo, ((cr1+50) , (cr1+50)*logoheight/logowidth), Image.ANTIALIAS)
+logo = ImageOps.fit(logo, ((cr1+(cwidth)) , (cr1+(cwidth))*logoheight/logowidth), Image.ANTIALIAS)
 logowidth,logoheight=logo.size
 
 draw.ellipse((cx-cr1, cy-cr1, cx+cr1, cy+cr1), fill=colour1)
