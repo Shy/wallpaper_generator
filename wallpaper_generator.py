@@ -4,8 +4,8 @@ from PIL import Image, ImageDraw, ImageOps
 multiplier = 2
 
 # Wallpaper Parameters
-x = 1440 * multiplier
-y = 2880 * multiplier
+x = 3440 * multiplier
+y = 1440 * multiplier
 
 # Colours
 colour1 = (38, 90, 143, 0)
@@ -18,10 +18,10 @@ logo = Image.open("logoSR.png")
 
 # Find center of primary circle
 cx = x/2
-cy = y/3
+cy = y/2
 
 # Set initial radius
-cr1 = y/5
+cr1 = int(y/4.3)
 
 # calculate line width and circle width
 width = cr1/5
