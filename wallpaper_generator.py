@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageOps
+from PIL import Image, ImageDraw, ImageOps, ImageColor
 
 # Super sample and then downscale to reduce jaggy edges.
 multiplier = 2
@@ -8,10 +8,10 @@ x = 3440 * multiplier
 y = 1440 * multiplier
 
 # Colours
-colour1 = (38, 90, 143, 0)
-colour2 = (197, 60, 2, 0)
-colour3 = (255, 255, 255, 0)
-background = (53, 53, 53)
+colour1 = ImageColor.getrgb("#1047A9")
+colour2 = ImageColor.getrgb("#E20048")
+colour3 = ImageColor.getrgb("#DCF900")
+background = ImageColor.getrgb("#23262A")
 
 # Load center logo
 logo = Image.open("logoSR.png")
